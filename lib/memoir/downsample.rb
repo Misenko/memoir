@@ -1,0 +1,2 @@
+class Memoir::Downsample
+end

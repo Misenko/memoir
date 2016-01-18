@@ -1,0 +1,3 @@
+class Memoir::Filter
+  
+end

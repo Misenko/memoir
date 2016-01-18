@@ -1,0 +1,3 @@
+class Memoir::Response
+  
+end
