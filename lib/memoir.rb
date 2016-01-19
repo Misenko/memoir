@@ -1,6 +1,7 @@
 require 'active_support/all'
 require 'json'
 require 'faraday'
+require 'faraday_middleware'
 
 module Memoir
   require File.join(File.dirname(__FILE__), 'memoir', 'version')

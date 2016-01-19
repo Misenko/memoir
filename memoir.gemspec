@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop', '~> 0.36'
 
   spec.add_runtime_dependency 'faraday', '~> 0.9'
+  spec.add_runtime_dependency 'faraday_middleware', '~> 0.10'
   spec.add_runtime_dependency 'yell', '~> 2.0'
   spec.add_runtime_dependency 'activesupport', '~> 4.2'
 end

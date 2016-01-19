@@ -25,17 +25,11 @@ class Memoir::Request
   end
 
   def to_json
-    validate!
+    to_hash.to_json
+  end
 
-    hash = {
-      'start' => start_time.instance_of?(Memoir::TimePeriod) ? start_time.to_s : start_time.to_i,
-      'queries' => queries.map(&:to_hash)
-    }
-
-    hash['end'] = end_time.to_i if end_time
-    options.each_pair { |key, value| hash[VALID_OPTIONS[key]] = value }
-
-    hash.to_json
+  def to_pretty_json
+    JSON.pretty_generate(to_hash)
   end
 
   private
@@ -46,5 +40,19 @@ class Memoir::Request
     options.keys.each do |key|
       fail Memoir::Errors::RequestError, "Unknown option #{key.inspect}" unless VALID_OPTIONS.keys.include? key
     end
+  end
+
+  def to_hash
+    validate!
+
+    hash = {
+      'start' => start_time.instance_of?(Memoir::TimePeriod) ? start_time.to_s : start_time.to_i,
+      'queries' => queries.map(&:to_hash)
+    }
+
+    hash['end'] = end_time.to_i if end_time
+    options.each_pair { |key, value| hash[VALID_OPTIONS[key]] = value }
+
+    hash
   end
 end
