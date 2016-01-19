@@ -23,7 +23,7 @@ class Memoir::Query
     filters.clear
   end
 
-  def to_hash
+  def to_h
     hash = {
       "aggregator" => aggregator,
       "metric" => metric,
@@ -32,7 +32,7 @@ class Memoir::Query
 
     hash["rateOptions"] = rate_options unless rate_options.empty?
     hash["downsample"] = downsample.to_s if downsample
-    hash['filters'] = filters.map(&:to_hash) unless filters.empty?
+    hash['filters'] = filters.map(&:to_h) unless filters.empty?
 
     hash
   end

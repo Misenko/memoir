@@ -8,7 +8,7 @@ class Memoir::Filter
     @group_by = group_by
   end
 
-  def to_hash
+  def to_h
     {
       'type' => type,
       'tagk' => tagk,

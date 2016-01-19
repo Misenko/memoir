@@ -24,15 +24,14 @@ class Memoir::Client
   end
 
   def run(request)
-    response = connection.post API_QUERY_URL, request
-    puts response
+    connection.post API_QUERY_URL, request.to_h
   end
 
   def dry_run(request)
     if logger
-      logger.info request.to_pretty_json
+      logger.info request.to_json
     else
-      puts request.to_pretty_json
+      puts request.to_json
     end
   end
 
@@ -41,6 +40,8 @@ class Memoir::Client
   def prepare_connection
     @connection = Faraday.new(url: "#{host}:#{port}") do |builder|
       builder.request  :json
+      builder.response :json
+      builder.adapter Faraday.default_adapter
     end
   end
 end
