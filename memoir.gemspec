@@ -4,20 +4,20 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'memoir/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "memoir"
+  spec.name          = 'memoir'
   spec.version       = Memoir::VERSION
-  spec.authors       = ["Michal Kimle"]
-  spec.email         = ["kimle.michal@gmail.com"]
+  spec.authors       = ['Michal Kimle']
+  spec.email         = ['kimle.michal@gmail.com']
 
-  spec.summary       = %q{Client library for easy communication with OpenTSDB}
-  spec.homepage      = "https://github.com/Misenko/memoir"
+  spec.summary       = 'Client library for easy communication with OpenTSDB'
+  spec.homepage      = 'https://github.com/Misenko/memoir'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  spec.require_paths = ["lib"]
+  spec.require_paths = ['lib']
 
-  spec.add_development_dependency "bundler", "~> 1.10"
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec"
+  spec.add_development_dependency 'bundler', '~> 1.10'
+  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'simplecov', '~> 0.11'
   spec.add_development_dependency 'rubocop', '~> 0.36'
 

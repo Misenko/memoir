@@ -1,5 +1,5 @@
 class Memoir::FillPolicy
-  NAN = 'nan'
-  NULL = 'null'
-  ZERO = 'zero'
+  NAN = 'nan'.freeze
+  NULL = 'null'.freeze
+  ZERO = 'zero'.freeze
 end

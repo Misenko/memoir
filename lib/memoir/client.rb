@@ -1,9 +1,9 @@
 class Memoir::Client
   attr_accessor :host, :port, :connection, :logger
 
-  API_QUERY_URL = '/api/query'
+  API_QUERY_URL = '/api/query'.freeze
 
-  def initialize(host, port, logger=nil)
+  def initialize(host, port, logger = nil)
     @host = host
     @port = port
     @logger = logger

@@ -1,7 +1,7 @@
 class Memoir::Query
   attr_accessor :aggregator, :metric, :rate, :rate_options, :downsample, :filters
 
-  def initialize(aggregator, metric, downsample=nil, rate=false, rate_options={})
+  def initialize(aggregator, metric, downsample = nil, rate = false, rate_options = {})
     @aggregator = aggregator
     @metric = metric
     @downsample = downsample
@@ -29,13 +29,13 @@ class Memoir::Query
 
   def to_h
     hash = {
-      "aggregator" => aggregator,
-      "metric" => metric,
-      "rate" => rate
+      'aggregator' => aggregator,
+      'metric' => metric,
+      'rate' => rate
     }
 
-    hash["rateOptions"] = rate_options unless rate_options.empty?
-    hash["downsample"] = downsample.to_s if downsample
+    hash['rateOptions'] = rate_options unless rate_options.empty?
+    hash['downsample'] = downsample.to_s if downsample
     hash['filters'] = filters.map(&:to_h) unless filters.empty?
 
     hash

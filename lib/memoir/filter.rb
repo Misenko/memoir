@@ -1,7 +1,7 @@
 class Memoir::Filter
   attr_accessor :type, :tagk, :filter, :group_by
 
-  def initialize(type, tagk, filter, group_by=false)
+  def initialize(type, tagk, filter, group_by = false)
     @type = type
     @tagk = tagk
     @filter = filter

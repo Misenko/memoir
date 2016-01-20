@@ -9,10 +9,10 @@ class Memoir::Request
     show_summary: 'showSummary',
     show_query: 'showQuery',
     delete: 'delete'
-  }
+  }.freeze
 
-  def initialize(start_time, end_time=nil, **options)
-    fail Memoir::Errors::ArgumentError, "start_time cannot be nil" unless start_time
+  def initialize(start_time, end_time = nil, **options)
+    fail Memoir::Errors::ArgumentError, 'start_time cannot be nil' unless start_time
 
     @start_time = start_time
     @end_time = end_time
@@ -57,7 +57,7 @@ class Memoir::Request
   private
 
   def validate!
-    fail Memoir::Errors::RequestError, "Request has to contain at least one query" if queries.empty?
+    fail Memoir::Errors::RequestError, 'Request has to contain at least one query' if queries.empty?
 
     options.keys.each do |key|
       fail Memoir::Errors::RequestError, "Unknown option #{key.inspect}" unless VALID_OPTIONS.keys.include? key
