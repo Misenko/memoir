@@ -15,6 +15,7 @@ module Memoir
   require File.join(File.dirname(__FILE__), 'memoir', 'filter')
   require File.join(File.dirname(__FILE__), 'memoir', 'query')
   require File.join(File.dirname(__FILE__), 'memoir', 'request')
+  require File.join(File.dirname(__FILE__), 'memoir', 'data_set')
   require File.join(File.dirname(__FILE__), 'memoir', 'response')
   require File.join(File.dirname(__FILE__), 'memoir', 'client')
 end

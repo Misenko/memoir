@@ -11,6 +11,10 @@ class Memoir::Query
     @filters = []
   end
 
+  def <<(filter)
+    add_filter(filter)
+  end
+
   def add_filter(filter)
     filters << filter
   end

@@ -21,6 +21,10 @@ class Memoir::Request
   end
 
   def <<(query)
+    add_query(query)
+  end
+
+  def add_query(query)
     queries << query
   end
 

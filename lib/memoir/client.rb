@@ -24,7 +24,7 @@ class Memoir::Client
   end
 
   def run(request)
-    connection.post API_QUERY_URL, request.to_h
+    Memoir::Response.new(connection.post API_QUERY_URL, request.to_h)
   end
 
   def dry_run(request)
