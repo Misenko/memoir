@@ -7,6 +7,6 @@ class Memoir::TimePeriod
   end
 
   def to_s
-    "#{interval}#{units}-ago"
+    "#{interval}#{units}"
   end
 end

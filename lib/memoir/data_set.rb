@@ -1,3 +1,4 @@
+# Class representing individual results in response
 class Memoir::DataSet
   attr_accessor :metric, :tags, :aggregated_tags, :dps, :annotations, :global_annotations, :tsuids, :query
 

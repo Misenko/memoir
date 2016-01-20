@@ -1,5 +1,6 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'simplecov'
+require 'yell'
 
 SimpleCov.start do
   add_filter "/vendor"

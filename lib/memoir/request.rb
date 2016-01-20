@@ -28,6 +28,14 @@ class Memoir::Request
     queries << query
   end
 
+  def remove_query(query)
+    queries.delete query
+  end
+
+  def clear_queries
+    queries.clear
+  end
+
   def to_json
     JSON.pretty_generate(to_h)
   end
@@ -36,7 +44,7 @@ class Memoir::Request
     validate!
 
     hash = {
-      'start' => start_time.instance_of?(Memoir::TimePeriod) ? start_time.to_s : start_time.to_i,
+      'start' => start_time.instance_of?(Memoir::TimePeriod) ? "#{start_time}-ago" : start_time.to_i,
       'queries' => queries.map(&:to_h)
     }
 

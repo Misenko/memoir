@@ -1,14 +1,13 @@
 class Memoir::Downsample
-  attr_accessor :interval, :units, :aggregator, :fill_policy
+  attr_accessor :time_period, :aggregator, :fill_policy
 
-  def initialize(interval, units, aggregator, fill_policy=nil)
-    @interval = interval
-    @units = units
+  def initialize(time_period, aggregator, fill_policy=nil)
+    @time_period = time_period
     @aggregator = aggregator
   end
 
   def to_s
-    downsample = "#{interval}#{units}-#{aggregator}"
+    downsample = "#{time_period}-#{aggregator}"
     downsample = "#{downsample}-#{fill_policy}" if fill_policy
 
     downsample

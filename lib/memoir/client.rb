@@ -2,9 +2,6 @@ class Memoir::Client
   attr_accessor :host, :port, :connection, :logger
 
   API_QUERY_URL = '/api/query'
-  API_QUERY_EXP_URL = '/api/query/exp'
-  API_QUERY_GEXP_URL = '/api/query/gexp'
-  API_QUERY_LAST_URL = '/api/query/last'
 
   def initialize(host, port, logger=nil)
     @host = host
@@ -39,7 +36,7 @@ class Memoir::Client
 
   def prepare_connection
     @connection = Faraday.new(url: "#{host}:#{port}") do |builder|
-      builder.request  :json
+      builder.request :json
       builder.response :json
       builder.adapter Faraday.default_adapter
     end
