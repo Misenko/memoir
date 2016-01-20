@@ -1,5 +1,5 @@
 class Memoir::Request
-  attr_accessor :start_time, :end_time, :queries, :options
+  attr_accessor :start_time, :end_time, :queries, :options, :arrays
 
   VALID_OPTIONS = {
     no_annotations: 'noAnnotations',
@@ -18,6 +18,7 @@ class Memoir::Request
     @end_time = end_time
     @queries = []
     @options = options
+    @arrays = false
   end
 
   def <<(query)
