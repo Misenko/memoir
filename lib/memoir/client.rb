@@ -1,11 +1,12 @@
 class Memoir::Client
-  attr_accessor :host, :port, :connection, :logger
+  attr_accessor :host, :port, :connection, :timeout, :logger
 
   API_QUERY_URL = '/api/query'.freeze
 
-  def initialize(host, port, logger = nil)
+  def initialize(host, port, logger = nil, options = {})
     @host = host
     @port = port
+    @timeout = options[:timeout] || 10
     @logger = logger
     prepare_connection
   end
@@ -39,6 +40,8 @@ class Memoir::Client
       builder.request :json
       builder.response :json
       builder.adapter Faraday.default_adapter
+      builder.options[:timeout] = @timeout
+      builder.options[:open_timeout] = @timeout
     end
   end
 end

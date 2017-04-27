@@ -1,7 +1,7 @@
 class Memoir::Query
-  attr_accessor :aggregator, :metric, :rate, :rate_options, :downsample, :filters
+  attr_accessor :aggregator, :metric, :explicit_tags, :rate, :rate_options, :downsample, :filters
 
-  def initialize(aggregator, metric, downsample = nil, rate = false, rate_options = {})
+  def initialize(aggregator, metric, downsample = nil, explicit_tags = false, rate = false, rate_options = {})
     @aggregator = aggregator
     @metric = metric
     @downsample = downsample
@@ -9,6 +9,7 @@ class Memoir::Query
     @rate_options = rate_options
     @tags = {}
     @filters = []
+    @explicit_tags = explicit_tags
   end
 
   def <<(filter)
@@ -31,7 +32,8 @@ class Memoir::Query
     hash = {
       'aggregator' => aggregator,
       'metric' => metric,
-      'rate' => rate
+      'rate' => rate,
+      'explicitTags' => explicit_tags
     }
 
     hash['rateOptions'] = rate_options unless rate_options.empty?
