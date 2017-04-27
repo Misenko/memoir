@@ -22,7 +22,11 @@ class Memoir::Client
   end
 
   def run(request)
-    Memoir::Response.new(connection.post API_QUERY_URL, request.to_h)
+    response = connection.post API_QUERY_URL, request.to_h do |req|
+      req.params['arrays'] = true if request.arrays
+    end
+
+    Memoir::Response.new response
   end
 
   def dry_run(request)

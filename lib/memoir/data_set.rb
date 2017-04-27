@@ -10,10 +10,6 @@ class Memoir::DataSet
     @global_annotations = data_set['globalAnnotations'] || []
     @tsuids = data_set['tsuids'] || []
     @query = query || {}
-    self.dps = data_set['dps'] || {}
-  end
-
-  def dps=(dps_object)
-    @dps = dps_object.instance_of?(Array) ? dps_object.to_h : dps_object
+    @dps = data_set['dps']
   end
 end
